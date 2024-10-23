@@ -1,0 +1,55 @@
+
+/* media Query starts Here */
+@media (max-width: 720px) {
+  body {
+    height: 100%;
+    margin-bottom: 30px;
+  }
+  .main-container {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* White Card */
+  .white-card {
+    width: 80%;
+  }
+
+  .top-container {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+  }
+  
+  .input-1 {
+    width: 100%;
+  }
+
+  .input-container-1 input {
+    width: 80%;
+    
+  }
+
+  .input-2 { 
+    flex-direction: column;
+  }
+
+  .input-container input{
+    width: 100%;
+  }
+
+
+  /* Dark Card */
+  .dark-card {
+    width: 80%;
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+  .input-container input {
+    width: 40px;
+  }
+}

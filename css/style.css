@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  background-color: hsl(202, 86%, 94%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  max-width: 940px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+/* White card styles */
+.white-card {
+  width: 50%;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(202, 55%, 16%);
+  padding: 30px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topic-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.clear-all {
+  color: hsl(200, 26%, 54%);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.input-text {
+  color: hsl(200, 21%, 41%);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.input-container-1 {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container {
+  background-color: hsl(202, 86%, 94%);
+  border-left: 1px solid hsl(200, 24%, 40%);
+  border-top: 1px solid hsl(200, 24%, 40%);
+  border-bottom: 1px solid hsl(200, 24%, 40%);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 11px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 17px;
+  color: hsl(200, 19%, 49%);
+  text-align: center;
+}
+
+.input-container-1 input {
+  width: 90%;
+  height: 41px;
+  border: 1px solid hsl(200, 24%, 40%);
+  border-left: none;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0 10%;
+  font-size: 17px;
+  font-weight: bold;
+  color: hsl(200, 19%, 49%);
+  cursor: pointer;
+}
+
+.input-container-1 input:focus {
+  outline: 1px solid hsl(61, 70%, 52%);
+  border: none;
+}
+
+
+/* error message */
+.input-error {
+  outline: 1px solid hsl(0, 75%, 55%);
+  border: none;
+  border-color: hsl(0, 75%, 55%);
+  background-color: hsla(0, 100%, 95%, 0.5);
+}
+
+.error-message {
+  color: hsl(0, 75%, 55%);
+  font-size: 14px;
+  display: none;
+}
+
+/* Show error message when input is invalid */
+.input.error + .error-message {
+  display: block;
+}
+
+
+/* second */
+.input-2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container input {
+  width: 80px;
+  border: 1px solid hsl(200, 24%, 40%);
+  border-right: none;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0 20px;
+  font-weight: bold;
+  font-size: 17px;
+  color: hsl(199, 20%, 29%);
+  cursor: pointer;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
+.input-container span {
+  padding: 10px 18px;
+  font-weight: bold;
+  color: hsl(200, 24%, 40%);
+  background-color: hsl(202, 86%, 94%);
+  border-right: 1px solid hsl(200, 24%, 40%);
+  border-top: 1px solid hsl(200, 24%, 40%);
+  border-bottom: 1px solid hsl(200, 24%, 40%);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin: auto 0;
+}
+
+/* Third */
+.selection-conatainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.selection-topic-text {
+  color: hsl(200, 21%, 41%);
+  margin-bottom: 10px;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid hsl(200, 24%, 40%);
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: hsl(200, 28%, 31%);
+  cursor: pointer;
+}
+
+.selector:hover {
+  border: 1px solid hsl(61, 70%, 52%);
+}
+
+.selector:active {
+  border: 1px solid hsl(61, 70%, 52%);
+  background-color: hsl(61, 70%, 52%, 0.3);
+}
+
+.selector input[type=radio] {
+  width: 18px;
+  height: 18px;
+}
+
+/* selector styles */
+/* Hide the default radio input */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style for the custom radio button */
+.selector {
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.selector label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Custom radio button visual */
+.selector label::before {
+  content: '';
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid hsl(0, 0%, 50%);
+  margin-right: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Checked radio button */
+input[type="radio"]:checked + label::before {
+  background-color: hsl(61, 70%, 52%);
+  border-color: hsl(61, 70%, 52%);
+}
+
+
+/* button styles */
+.button-container {
+  margin-top: 20px;
+}
+
+.button-container button {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: hsl(61, 70%, 52%);
+  color: hsl(199, 24%, 31%);
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.button-container button:hover {
+  opacity: 0.8;
+}
+
+.button-container button img {
+  width: 25px;
+}
+
+/* Dark card styles */
+.dark-card {
+  width: 50%;
+  background-color: hsl(202, 55%, 16%);
+  color: white;
+  padding: 25px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 60px;
+}
+
+.internal-wrapper-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container  {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.result-text {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.discription-text {
+  color: hsl(200, 38%, 56%);
+  font-size: 16px;
+  text-align: center;
+  line-height: 23px;
+}
+
+
+/* Completed results style */
+.result-text-2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.discription-text-2 {
+  color: hsl(200, 46%, 78%);
+  font-size: 16px;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+
+.result-container {
+  border-top: 3px solid hsl(61, 70%, 52%);
+  border-radius: 10px;
+  background-color: hsl(200, 60%, 11%);
+  padding: 20px;
+}
+
+.text {
+  font-size: 14px;
+  color: hsl(200, 46%, 78%);
+  margin-bottom: 20px;
+}
+
+.monthly-result {
+  max-width: 360px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: hsl(61, 70%, 52%);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid hsl(200, 24%, 40%);
+}
+
+.text-2 {
+  font-size: 14px;
+  color: hsl(200, 46%, 78%);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.total-result {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.devloper {
+  font-weight: bold;
+  color: hsl(61, 70%, 52%);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+}
+
