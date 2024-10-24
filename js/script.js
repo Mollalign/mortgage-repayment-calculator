@@ -31,12 +31,15 @@ document.querySelector('button').addEventListener('click', (e) => {
   
   let hasError = false; // Track if there are any validation errors
 
-  // Function to handle validation for inputs and selectors
+  // Function to handle validation for inputs
   const validateField = (field, errorElement) => {
-    if (!field.value || (field.type === 'radio' && !repaymentType)) {
+    if (!field.value && field.type !== 'radio') {  // Adjusted condition for non-radio buttons
       field.classList.add('input-error'); // Add error class
       errorElement.style.display = 'block'; // Show error message
       hasError = true; // Set error flag
+    } else if (field.type === 'radio' && !repaymentType) {  // Special case for radio buttons
+      document.getElementById('type-error').style.display = 'block';
+      hasError = true;
     } else {
       field.classList.remove('input-error'); // Remove error class
       errorElement.style.display = 'none'; // Hide error message
@@ -73,26 +76,21 @@ document.querySelector('button').addEventListener('click', (e) => {
       parseFloat(rateInput.value),
       repaymentType.value
     );
-
+  }
 });
 
-
 // Clear the input fields and reset the form after displaying the results
- let clearEl = document.querySelector('.clear-all');
- clearEl.addEventListener('click', (e) => {
-   amountInput.value = '';
-      termInput.value = '';
-      rateInput.value = '';
-      document.querySelectorAll('input[name="mortgage-type"]').forEach(radio => {
-        radio.checked = false; // Uncheck radio buttons
-      });
+let clearEl = document.querySelector('.clear-all');
+clearEl.addEventListener('click', (e) => {
+  amountInput.value = '';
+  termInput.value = '';
+  rateInput.value = '';
+  document.querySelectorAll('input[name="mortgage-type"]').forEach(radio => {
+    radio.checked = false; // Uncheck radio buttons
+  });
 
-   resultHTML.innerHTML = emptyResultHtml;
-   
- });
-  
-
-
+  resultHTML.innerHTML = emptyResultHtml;
+});
 
 // Calculation logic
 function calculateRepayments(amount, term, rate, type) {
