@@ -17,29 +17,27 @@ let emptyResultHtml = `
 
 resultHTML.innerHTML = emptyResultHtml;
 
+const amountInput = document.querySelector('.js-input-amount');
+const termInput = document.querySelector('.js-input-term');
+const rateInput = document.querySelector('.js-input-rate');
+
 document.querySelector('button').addEventListener('click', (e) => {
   e.preventDefault();
 
-  const amountInput = document.querySelector('.js-input-amount');
-  const termInput = document.querySelector('.js-input-term');
-  const rateInput = document.querySelector('.js-input-rate');
-  const repaymentType = document.querySelector('input[name="mortgage-type"]:checked');
-
   const inputs = document.querySelectorAll('input');
-  const selectors = document.querySelectorAll('.selector');
   const errorMessage = document.querySelectorAll('.error-message');
   
   let hasError = false; // Track if there are any validation errors
 
+  // Get the updated value of the selected repayment type
+  const repaymentType = document.querySelector('input[name="mortgage-type"]:checked');
+
   // Function to handle validation for inputs
   const validateField = (field, errorElement) => {
-    if (!field.value && field.type !== 'radio') {  // Adjusted condition for non-radio buttons
+    if (!field.value || (field.type === 'radio' && !repaymentType)) {
       field.classList.add('input-error'); // Add error class
       errorElement.style.display = 'block'; // Show error message
       hasError = true; // Set error flag
-    } else if (field.type === 'radio' && !repaymentType) {  // Special case for radio buttons
-      document.getElementById('type-error').style.display = 'block';
-      hasError = true;
     } else {
       field.classList.remove('input-error'); // Remove error class
       errorElement.style.display = 'none'; // Hide error message
@@ -59,14 +57,13 @@ document.querySelector('button').addEventListener('click', (e) => {
     document.getElementById('type-error').style.display = 'none';
   }
 
-  // Automatically remove error class after 3 seconds if needed
+  // Automatically remove error class after 3 seconds
   setTimeout(() => {
     inputs.forEach(input => input.classList.remove('input-error'));
-    selectors.forEach(selector => selector.classList.remove('input-error'));
     errorMessage.forEach(error => {
       error.style.display = 'none';
     });
-  }, 3000); // Change the timeout duration as needed
+  }, 3000);
 
   // Only calculate if no errors
   if (!hasError) {
@@ -79,9 +76,9 @@ document.querySelector('button').addEventListener('click', (e) => {
   }
 });
 
-// Clear the input fields and reset the form after displaying the results
-let clearEl = document.querySelector('.clear-all');
-clearEl.addEventListener('click', (e) => {
+// Clear the input fields
+const clearEl = document.querySelector('.clear-all');
+clearEl.addEventListener('click', () => {
   amountInput.value = '';
   termInput.value = '';
   rateInput.value = '';
