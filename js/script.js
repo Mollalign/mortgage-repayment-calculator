@@ -78,7 +78,7 @@ document.querySelector('button').addEventListener('click', (e) => {
 
 
 // Clear the input fields and reset the form after displaying the results
- let clearEl = document.querySelector('.');
+ let clearEl = document.querySelector('.clear-all');
  clearEl.addEventListener('click', (e) => {
    amountInput.value = '';
       termInput.value = '';
