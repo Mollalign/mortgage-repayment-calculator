@@ -74,22 +74,25 @@ document.querySelector('button').addEventListener('click', (e) => {
       repaymentType.value
     );
 
-    // Clear the input fields and reset the form after displaying the results
-    setTimeout(() => {
-      amountInput.value = '';
+});
+
+
+// Clear the input fields and reset the form after displaying the results
+ let clearEl = document.querySelector('.');
+ clearEl.addEventListener('click', (e) => {
+   amountInput.value = '';
       termInput.value = '';
       rateInput.value = '';
       document.querySelectorAll('input[name="mortgage-type"]').forEach(radio => {
         radio.checked = false; // Uncheck radio buttons
       });
 
-    }, 3000); // Delay clearing form to allow user to view result for 3 seconds
-  }
+   resultHTML.innerHTML = emptyResultHtml;
+   
+ });
+  
 
-  setTimeout(() => {
-    resultHTML.innerHTML = emptyResultHtml;
-  }, 10000);
-});
+
 
 // Calculation logic
 function calculateRepayments(amount, term, rate, type) {
